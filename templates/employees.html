@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="container mt-4">
+  <h1>Employees</h1>
+  <a class="btn btn-primary mb-3" href="/">Back</a>
+  {% if employees %}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Sno</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in employees %}
+      <tr>
+        <td>{{ e.sno }}</td>
+        <td>{{ e.name }}</td>
+        <td>{{ e.email }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <div class="alert alert-info">No employees found.</div>
+  {% endif %}
+</div>
+{% endblock %}
